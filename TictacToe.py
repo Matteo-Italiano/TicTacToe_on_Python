@@ -3,6 +3,8 @@ a, b, c = 1, 2, 3
 d, e, f = 4, 5, 6
 g, h, i = 7, 8, 9
 
+def print_Area():
+    print(f" >>> {a} {b} {c}\n >>> {d} {e} {f}\n >>> {g} {h} {i}")
 
 # DO NOT TOUCH THIS ONE WORKS
 
@@ -11,16 +13,22 @@ g, h, i = 7, 8, 9
 einzelinput = input(f"Wie viele Spieler(1/2)?")
 if einzelinput == "2":
     print("Viel Spass!")
+else:
+    if einzelinput == "1":
+       EasyOrUltimate = input("[E]asy or [U]ltimate")
+       if EasyOrUltimate == "U":
+        print("DU WIRST NIE GEWINNEN")
+        
+
+    print("Ungültige Auswahl")
     
-def print_Area():
-    print(f" >>> {a} {b} {c}\n >>> {d} {e} {f}\n >>> {g} {h} {i}")
+
 
 print_Area()
 
 current_turn = "X"
 
 def gewinner(player):
-    # Gewinnkombinationen für den Spieler (entweder "XXX" oder "OOO")
     if f"{a}{b}{c}" == player:
         return True
     if f"{d}{e}{f}" == player:
@@ -63,6 +71,7 @@ while not (gewinner("XXX") or gewinner("OOO")):
     elif inputFUN == str(i):
         i = current_turn
     else:
+        print_Area()
         print("Ungültige Auswahl. Versuche es erneut.")
         
         continue
