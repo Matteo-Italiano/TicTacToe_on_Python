@@ -72,4 +72,5 @@ while not (gewinner("XXX") or gewinner("OOO")):
 
     current_turn = "O" if current_turn == "X" else "X"
 
-print("Spiel beendet!")
+last_turn = "O" if current_turn == "X" else "X"
+print(f"Spiel beendet! ({last_turn}) HAT GEWONNEN!!!")
