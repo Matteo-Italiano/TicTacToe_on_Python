@@ -71,8 +71,8 @@ while not (gewinner("XXX") or gewinner("OOO")):
     elif inputFUN == str(i):
         i = current_turn
     else:
-        print_Area()
         print("Ungültige Auswahl. Versuche es erneut.")
+        print_Area()
         
         continue
 
