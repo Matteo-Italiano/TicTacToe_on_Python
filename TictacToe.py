@@ -41,6 +41,11 @@ def gewinner(player):
 def Unbeateble():
     print()
 
+def Blocker():
+    print()
+    if f"{a}{c}" == "XX":
+        b = "O"
+
 
 
 # DO NOT TOUCH THIS ONE WORKS
@@ -56,7 +61,12 @@ if NumberOfPlayers == "2":
 
         FieldChanger = input(f"Wähle ein Feld aus ({current_turn}): ")
 
-        if FieldChanger == str(a):
+        if FieldChanger == "X":
+            print("HEY NICHT SCHUMELN!")
+        if FieldChanger == "O":
+            print("HEY NICHT SCHUMELN!")
+        
+        elif FieldChanger == str(a):
             a = current_turn
         elif FieldChanger == str(b):
             b = current_turn
@@ -97,7 +107,17 @@ elif NumberOfPlayers == "1":
             print_area()
             while not (gewinner("XXX") or gewinner("OOO")):
                 FieldChanger = input(f"Wähle ein Feld aus MENSCH: ")
-
+                if f"{a}{c}" == "XX":
+                    b = "O"
+                elif f"{d}{f}" == "XX":
+                    e = "O"
+                elif f"{g}{i}" == "XX":
+                    h = "O"
+                
+                if FieldChanger == "X":
+                    print("HEY NICHT SCHUMELN!")
+                if FieldChanger == "O":
+                    print("HEY NICHT SCHUMELN!")
                 if FieldChanger == str(a):
                     a = "X"
                 elif FieldChanger == str(b):
@@ -122,9 +142,13 @@ elif NumberOfPlayers == "1":
                     continue
                     
                 print_area()
+    last_turn = "O" if current_turn == "X" else "X"
+    print(f"Spiel beendet!\n({last_turn}) HAT GEWONNEN!!!")
 
 
     if EasyOrUltimate == "E":
            print("Möge der Bessere Gewinnen")
 else:
     print("Ungültige Auswahl")
+
+
