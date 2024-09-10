@@ -61,8 +61,10 @@ if NumberOfPlayers == "2":
 
         FieldChanger = input(f"Wähle ein Feld aus ({current_turn}): ")
 
-        if FieldChanger == "X": or FieldChanger == "O":
+        if FieldChanger == "X" or FieldChanger == "O":
             print("HEY NICHT SCHUMELN!")
+            print_area()
+            continue
         
         elif FieldChanger == str(a):
             a = current_turn
