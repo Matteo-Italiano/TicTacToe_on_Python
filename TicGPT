@@ -1,6 +1,5 @@
 import random
 
-
 player_1 = "X"
 player_2 = "O"
 
@@ -8,13 +7,11 @@ a, b, c = 1, 2, 3
 d, e, f = 4, 5, 6
 g, h, i = 7, 8, 9
 
-
 def print_area():
     print(f" >>> {a} {b} {c}\n >>> {d} {e} {f}\n >>> {g} {h} {i}")
 
-
 def has_won(player):
-    player_validation_string =f"{player}{player}{player}"
+    player_validation_string = f"{player}{player}{player}"
 
     if f"{a}{b}{c}" == player_validation_string:
         return True
@@ -34,31 +31,146 @@ def has_won(player):
         return True
     return False
 
-
 def computer():
     global a, b, c, d, e, f, g, h, i
     available_fields = []
 
     if isinstance(a, int):
         available_fields.append("a")
-    if isinstance(b, int): 
+    if isinstance(b, int):
         available_fields.append("b")
-    if isinstance(c, int): 
+    if isinstance(c, int):
         available_fields.append("c")
-    if isinstance(d, int): 
+    if isinstance(d, int):
         available_fields.append("d")
-    if isinstance(e, int): 
+    if isinstance(e, int):
         available_fields.append("e")
-    if isinstance(f, int): 
+    if isinstance(f, int):
         available_fields.append("f")
-    if isinstance(g, int): 
+    if isinstance(g, int):
         available_fields.append("g")
-    if isinstance(h, int): 
+    if isinstance(h, int):
         available_fields.append("h")
-    if isinstance(i, int): 
+    if isinstance(i, int):
         available_fields.append("i")
 
-    if available_fields:
+
+    # The code below is used for Winning when theres the Opportunity Horizontal
+    if f"{a}{b}" == f"{player_2}{player_2}" and "c" in available_fields:
+          c = f"{player_2}"
+            
+    elif f"{b}{c}" == f"{player_2}{player_2}" and "a" in available_fields:
+            a = f"{player_2}"
+            
+    elif f"{a}{c}" == f"{player_2}{player_2}" and "b" in available_fields:
+            b = f"{player_2}"
+            
+    elif f"{d}{e}" == f"{player_2}{player_2}" and "f" in available_fields:
+            f = f"{player_2}"
+            
+    elif f"{e}{f}" == f"{player_2}{player_2}" and "d" in available_fields:
+            d = f"{player_2}"
+            
+    elif f"{d}{f}" == f"{player_2}{player_2}" and "e" in available_fields:
+            e = f"{player_2}"
+            
+    elif f"{g}{h}" == f"{player_2}{player_2}" and "i" in available_fields:
+            i = f"{player_2}"
+            
+    elif f"{h}{i}" == f"{player_2}{player_2}" and "g" in available_fields:
+            g = f"{player_2}"
+            
+    elif f"{g}{i}" == f"{player_2}{player_2}" and "h" in available_fields:
+            h = f"{player_2}"
+
+    #The Code Below is used to win Vertical
+    elif f"{a}{d}" == f"{player_2}{player_2}" and "g" in available_fields:
+            g = f"{player_2}"
+            
+    elif f"{d}{g}" == f"{player_2}{player_2}" and "a" in available_fields:
+            a = f"{player_2}"
+            
+    elif f"{a}{g}" == f"{player_2}{player_2}" and "d" in available_fields:
+            d = f"{player_2}"
+            
+    elif f"{b}{e}" == f"{player_2}{player_2}" and "h" in available_fields:
+            h = f"{player_2}"
+            
+    elif f"{e}{h}" == f"{player_2}{player_2}" and "b" in available_fields:
+            b = f"{player_2}"
+            
+    elif f"{b}{h}" == f"{player_2}{player_2}" and "e" in available_fields:
+            e = f"{player_2}"
+            
+    elif f"{c}{f}" == f"{player_2}{player_2}" and "i" in available_fields:
+            i= f"{player_2}"
+            
+    elif f"{f}{i}" == f"{player_2}{player_2}" and "h" in available_fields:
+            c = f"{player_2}"
+
+    elif f"{c}{i}" == f"{player_2}{player_2}" and "f" in available_fields:
+            f = f"{player_2}"
+
+
+    #The Code Below is used for Blocking the Opponent Horizontal
+    if f"{a}{b}" == f"{player_1}{player_1}" and "c" in available_fields:
+          c = f"{player_2}"
+            
+    elif f"{b}{c}" == f"{player_1}{player_1}" and "a" in available_fields:
+            a = f"{player_2}"
+            
+    elif f"{a}{c}" == f"{player_1}{player_1}" and "b" in available_fields:
+            b = f"{player_2}"
+            
+    elif f"{d}{e}" == f"{player_1}{player_1}" and "f" in available_fields:
+            f = f"{player_2}"
+            
+    elif f"{e}{f}" == f"{player_1}{player_1}" and "d" in available_fields:
+            d = f"{player_2}"
+            
+    elif f"{d}{f}" == f"{player_1}{player_1}" and "e" in available_fields:
+            e = f"{player_2}"
+            
+    elif f"{g}{h}" == f"{player_1}{player_1}" and "i" in available_fields:
+            i = f"{player_2}"
+            
+    elif f"{h}{i}" == f"{player_1}{player_1}" and "g" in available_fields:
+            g = f"{player_2}"
+            
+    elif f"{g}{i}" == f"{player_1}{player_1}" and "h" in available_fields:
+            h = f"{player_2}"
+
+    #the Code below is used for Blocking vertical
+    elif f"{a}{d}" == f"{player_1}{player_1}" and "g" in available_fields:
+            g = f"{player_2}"
+            
+    elif f"{d}{g}" == f"{player_1}{player_1}" and "a" in available_fields:
+            a = f"{player_2}"
+            
+    elif f"{a}{g}" == f"{player_1}{player_1}" and "d" in available_fields:
+            d = f"{player_2}"
+            
+    elif f"{b}{e}" == f"{player_1}{player_1}" and "h" in available_fields:
+            h = f"{player_2}"
+            
+    elif f"{e}{h}" == f"{player_1}{player_1}" and "b" in available_fields:
+            b = f"{player_2}"
+            
+    elif f"{b}{h}" == f"{player_1}{player_1}" and "e" in available_fields:
+            e = f"{player_2}"
+            
+    elif f"{c}{f}" == f"{player_1}{player_1}" and "i" in available_fields:
+            i= f"{player_2}"
+            
+    elif f"{f}{i}" == f"{player_1}{player_1}" and "h" in available_fields:
+            c = f"{player_2}"
+
+    elif f"{c}{i}" == f"{player_1}{player_1}" and "f" in available_fields:
+            f = f"{player_2}"
+        
+
+
+    elif available_fields:
         choice = random.choice(available_fields)
         if choice == "a":
             a = f"{player_2}"
@@ -77,16 +189,13 @@ def computer():
         elif choice == "h":
             h = f"{player_2}"
         elif choice == "i":
-            i = "i"
-
+            i = f"{player_2}"
 
 number_of_players = input(f"Wie viele Spieler (1/2)?:   ")
-
 
 if number_of_players == "2":
     print("Viel Spaß!")
     print_area()
-
 
     current_turn = f"{player_1}"
     while not (has_won(f"{player_1}") or has_won(f"{player_2}")):
@@ -125,7 +234,6 @@ if number_of_players == "2":
 
     last_turn = f"{player_2}" if current_turn == f"{player_1}" else f"{player_1}"
     print(f"Spiel beendet!\n({last_turn}) HAT GEWONNEN!!!")
-
 
 elif number_of_players == "1":
     print("DU WIRST NIE GEWINNEN!")
