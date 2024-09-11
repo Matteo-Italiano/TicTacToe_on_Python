@@ -37,6 +37,7 @@ def computer():
     available_fields = []
 
     almost_winning_constelation = f"{player_2}{player_2}"
+    almost_loosing_constelation = f"{player_1}{player_1}"
 
     if isinstance(a, int):
         available_fields.append("a")
@@ -62,151 +63,151 @@ def computer():
     if f"{a}{b}" == almost_winning_constelation and "c" in available_fields:
           c = f"{player_2}"
             
-    elif f"{b}{c}" == f"{player_2}{player_2}" and "a" in available_fields:
+    elif f"{b}{c}" == almost_winning_constelation and "a" in available_fields:
             a = f"{player_2}"
             
-    elif f"{a}{c}" == f"{player_2}{player_2}" and "b" in available_fields:
+    elif f"{a}{c}" == almost_winning_constelation and "b" in available_fields:
             b = f"{player_2}"
             
-    elif f"{d}{e}" == f"{player_2}{player_2}" and "f" in available_fields:
+    elif f"{d}{e}" == almost_winning_constelation and "f" in available_fields:
             f = f"{player_2}"
             
-    elif f"{e}{f}" == f"{player_2}{player_2}" and "d" in available_fields:
+    elif f"{e}{f}" == almost_winning_constelation and "d" in available_fields:
             d = f"{player_2}"
             
-    elif f"{d}{f}" == f"{player_2}{player_2}" and "e" in available_fields:
+    elif f"{d}{f}" == almost_winning_constelation and "e" in available_fields:
             e = f"{player_2}"
             
-    elif f"{g}{h}" == f"{player_2}{player_2}" and "i" in available_fields:
+    elif f"{g}{h}" == almost_winning_constelation and "i" in available_fields:
             i = f"{player_2}"
             
-    elif f"{h}{i}" == f"{player_2}{player_2}" and "g" in available_fields:
+    elif f"{h}{i}" == almost_winning_constelation and "g" in available_fields:
             g = f"{player_2}"
             
-    elif f"{g}{i}" == f"{player_2}{player_2}" and "h" in available_fields:
+    elif f"{g}{i}" == almost_winning_constelation and "h" in available_fields:
             h = f"{player_2}"
 
     #The Code Below is used to win Vertical
-    elif f"{a}{d}" == f"{player_2}{player_2}" and "g" in available_fields:
+    elif f"{a}{d}" == almost_winning_constelation and "g" in available_fields:
             g = f"{player_2}"
             
-    elif f"{d}{g}" == f"{player_2}{player_2}" and "a" in available_fields:
+    elif f"{d}{g}" == almost_winning_constelation and "a" in available_fields:
             a = f"{player_2}"
             
-    elif f"{a}{g}" == f"{player_2}{player_2}" and "d" in available_fields:
+    elif f"{a}{g}" == almost_winning_constelation and "d" in available_fields:
             d = f"{player_2}"
             
-    elif f"{b}{e}" == f"{player_2}{player_2}" and "h" in available_fields:
+    elif f"{b}{e}" == almost_winning_constelation and "h" in available_fields:
             h = f"{player_2}"
             
-    elif f"{e}{h}" == f"{player_2}{player_2}" and "b" in available_fields:
+    elif f"{e}{h}" == almost_winning_constelation and "b" in available_fields:
             b = f"{player_2}"
             
-    elif f"{b}{h}" == f"{player_2}{player_2}" and "e" in available_fields:
+    elif f"{b}{h}" == almost_winning_constelation and "e" in available_fields:
             e = f"{player_2}"
             
-    elif f"{c}{f}" == f"{player_2}{player_2}" and "i" in available_fields:
+    elif f"{c}{f}" == almost_winning_constelation and "i" in available_fields:
             i= f"{player_2}"
             
-    elif f"{f}{i}" == f"{player_2}{player_2}" and "h" in available_fields:
+    elif f"{f}{i}" == almost_winning_constelation and "h" in available_fields:
             c = f"{player_2}"
 
-    elif f"{c}{i}" == f"{player_2}{player_2}" and "f" in available_fields:
+    elif f"{c}{i}" == almost_winning_constelation and "f" in available_fields:
             f = f"{player_2}"
 
     #the code below is used for winning Diagonally
-    elif f"{a}{e}" == f"{player_2}{player_2}" and "i" in available_fields:
+    elif f"{a}{e}" == almost_winning_constelation and "i" in available_fields:
             i = f"{player_2}"
             
-    elif f"{e}{i}" == f"{player_2}{player_2}" and "a" in available_fields:
+    elif f"{e}{i}" == almost_winning_constelation and "a" in available_fields:
             a = f"{player_2}"
             
-    elif f"{a}{i}" == f"{player_2}{player_2}" and "e" in available_fields:
+    elif f"{a}{i}" == almost_winning_constelation and "e" in available_fields:
             e = f"{player_2}"
             
-    elif f"{c}{e}" == f"{player_2}{player_2}" and "g" in available_fields:
+    elif f"{c}{e}" == almost_winning_constelation and "g" in available_fields:
             g= f"{player_2}"
             
-    elif f"{e}{g}" == f"{player_2}{player_2}" and "c" in available_fields:
+    elif f"{e}{g}" == almost_winning_constelation and "c" in available_fields:
             c = f"{player_2}"
 
-    elif f"{g}{c}" == f"{player_2}{player_2}" and "e" in available_fields:
+    elif f"{g}{c}" == almost_winning_constelation and "e" in available_fields:
             e = f"{player_2}"
 
 
     #The Code Below is used for Blocking the Opponent Horizontal
-    elif f"{a}{b}" == f"{player_1}{player_1}" and "c" in available_fields:
+    elif f"{a}{b}" == almost_loosing_constelation and "c" in available_fields:
           c = f"{player_2}"
             
-    elif f"{b}{c}" == f"{player_1}{player_1}" and "a" in available_fields:
+    elif f"{b}{c}" == almost_loosing_constelation and "a" in available_fields:
             a = f"{player_2}"
             
-    elif f"{a}{c}" == f"{player_1}{player_1}" and "b" in available_fields:
+    elif f"{a}{c}" == almost_loosing_constelation and "b" in available_fields:
             b = f"{player_2}"
             
-    elif f"{d}{e}" == f"{player_1}{player_1}" and "f" in available_fields:
+    elif f"{d}{e}" == almost_loosing_constelation and "f" in available_fields:
             f = f"{player_2}"
             
-    elif f"{e}{f}" == f"{player_1}{player_1}" and "d" in available_fields:
+    elif f"{e}{f}" == almost_loosing_constelation and "d" in available_fields:
             d = f"{player_2}"
             
-    elif f"{d}{f}" == f"{player_1}{player_1}" and "e" in available_fields:
+    elif f"{d}{f}" == almost_loosing_constelation and "e" in available_fields:
             e = f"{player_2}"
             
-    elif f"{g}{h}" == f"{player_1}{player_1}" and "i" in available_fields:
+    elif f"{g}{h}" == almost_loosing_constelation and "i" in available_fields:
             i = f"{player_2}"
             
-    elif f"{h}{i}" == f"{player_1}{player_1}" and "g" in available_fields:
+    elif f"{h}{i}" == almost_loosing_constelation and "g" in available_fields:
             g = f"{player_2}"
             
-    elif f"{g}{i}" == f"{player_1}{player_1}" and "h" in available_fields:
+    elif f"{g}{i}" == almost_loosing_constelation and "h" in available_fields:
             h = f"{player_2}"
 
     #the Code below is used for Blocking vertical
-    elif f"{a}{d}" == f"{player_1}{player_1}" and "g" in available_fields:
+    elif f"{a}{d}" == almost_loosing_constelation and "g" in available_fields:
             g = f"{player_2}"
             
-    elif f"{d}{g}" == f"{player_1}{player_1}" and "a" in available_fields:
+    elif f"{d}{g}" == almost_loosing_constelation and "a" in available_fields:
             a = f"{player_2}"
             
-    elif f"{a}{g}" == f"{player_1}{player_1}" and "d" in available_fields:
+    elif f"{a}{g}" == almost_loosing_constelation and "d" in available_fields:
             d = f"{player_2}"
             
-    elif f"{b}{e}" == f"{player_1}{player_1}" and "h" in available_fields:
+    elif f"{b}{e}" == almost_loosing_constelation and "h" in available_fields:
             h = f"{player_2}"
             
-    elif f"{e}{h}" == f"{player_1}{player_1}" and "b" in available_fields:
+    elif f"{e}{h}" == almost_loosing_constelation and "b" in available_fields:
             b = f"{player_2}"
             
-    elif f"{b}{h}" == f"{player_1}{player_1}" and "e" in available_fields:
+    elif f"{b}{h}" == almost_loosing_constelation and "e" in available_fields:
             e = f"{player_2}"
             
-    elif f"{c}{f}" == f"{player_1}{player_1}" and "i" in available_fields:
+    elif f"{c}{f}" == almost_loosing_constelation and "i" in available_fields:
             i= f"{player_2}"
             
-    elif f"{f}{i}" == f"{player_1}{player_1}" and "h" in available_fields:
+    elif f"{f}{i}" == almost_loosing_constelation and "h" in available_fields:
             c = f"{player_2}"
 
-    elif f"{c}{i}" == f"{player_1}{player_1}" and "f" in available_fields:
+    elif f"{c}{i}" == almost_loosing_constelation and "f" in available_fields:
             f = f"{player_2}"
 
     #the Code below is Used for Blocking the Oponnent Diagonally
-    elif f"{a}{e}" == f"{player_1}{player_1}" and "i" in available_fields:
+    elif f"{a}{e}" == almost_loosing_constelation and "i" in available_fields:
             i = f"{player_2}"
             
-    elif f"{e}{i}" == f"{player_1}{player_1}" and "a" in available_fields:
+    elif f"{e}{i}" == almost_loosing_constelation and "a" in available_fields:
             a = f"{player_2}"
             
-    elif f"{a}{i}" == f"{player_1}{player_1}" and "e" in available_fields:
+    elif f"{a}{i}" == almost_loosing_constelation and "e" in available_fields:
             e = f"{player_2}"
             
-    elif f"{c}{e}" == f"{player_1}{player_1}" and "g" in available_fields:
+    elif f"{c}{e}" == almost_loosing_constelation and "g" in available_fields:
             g= f"{player_2}"
             
-    elif f"{e}{g}" == f"{player_1}{player_1}" and "c" in available_fields:
+    elif f"{e}{g}" == almost_loosing_constelation and "c" in available_fields:
             c = f"{player_2}"
 
-    elif f"{g}{c}" == f"{player_1}{player_1}" and "e" in available_fields:
+    elif f"{g}{c}" == almost_loosing_constelation and "e" in available_fields:
             e = f"{player_2}"
 
 
@@ -351,4 +352,3 @@ elif number_of_players == "1":
           print("Unentschieden!")
     else:
         print(f"Spiel beendet!\n({last_turn}) HAT GEWONNEN!!!")
-
