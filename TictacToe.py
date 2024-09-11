@@ -231,6 +231,34 @@ def computer():
         elif choice == "i":
             i = f"{player_2}"
 
+def tie():
+      
+    global a, b, c, d, e, f, g, h, i
+    
+
+    if isinstance(a, int):
+        return False
+    if isinstance(b, int):
+       return False
+    if isinstance(c, int):
+       return False
+    if isinstance(d, int):
+        return False
+    if isinstance(e, int):
+        return False
+    if isinstance(f, int):
+        return False
+    if isinstance(g, int):
+        return False
+    if isinstance(h, int):
+        return False
+    if isinstance(i, int):
+        return False
+    return True
+
+     
+            
+
 number_of_players = input(f"Wie viele Spieler (1/2)?:   ")
 
 if number_of_players == "2":
@@ -238,7 +266,7 @@ if number_of_players == "2":
     print_area()
 
     current_turn = f"{player_1}"
-    while not (has_won(f"{player_1}") or has_won(f"{player_2}")):
+    while not (has_won(f"{player_1}") or has_won(f"{player_2}") or tie()):
         user_input_field = input(f"Wähle ein Feld aus ({current_turn}): ")
 
         if user_input_field == f"{player_1}" or user_input_field == f"{player_2}":
@@ -280,7 +308,7 @@ elif number_of_players == "1":
     print_area()
 
     current_turn = f"{player_1}"
-    while not (has_won(f"{player_1}") or has_won(f"{player_2}")):
+    while not (tie() or has_won(f"{player_1}") or has_won(f"{player_2}")):
         if current_turn == f"{player_1}":
             user_input_field = input(f"Wähle ein Feld aus ({current_turn}): ")
 
@@ -317,6 +345,10 @@ elif number_of_players == "1":
 
         print_area()
         current_turn = f"{player_2}" if current_turn == f"{player_1}" else f"{player_1}"
+        last_turn = f"{player_2}" if current_turn == f"{player_1}" else f"{player_1}"
 
-    last_turn = f"{player_2}" if current_turn == f"{player_1}" else f"{player_1}"
-    print(f"Spiel beendet!\n({last_turn}) HAT GEWONNEN!!!")
+    if tie() == True:
+          print("Unentschieden!")
+    else:
+        print(f"Spiel beendet!\n({last_turn}) HAT GEWONNEN!!!")
+
