@@ -29,6 +29,7 @@ def has_won(player):
         return True
     if f"{g}{e}{c}" == player_validation_string:
         return True
+
     return False
 
 def computer():
@@ -113,9 +114,28 @@ def computer():
     elif f"{c}{i}" == f"{player_2}{player_2}" and "f" in available_fields:
             f = f"{player_2}"
 
+    #the code below is used for winning Diagonally
+    elif f"{a}{e}" == f"{player_2}{player_2}" and "i" in available_fields:
+            i = f"{player_2}"
+            
+    elif f"{e}{i}" == f"{player_2}{player_2}" and "a" in available_fields:
+            a = f"{player_2}"
+            
+    elif f"{a}{i}" == f"{player_2}{player_2}" and "e" in available_fields:
+            e = f"{player_2}"
+            
+    elif f"{c}{e}" == f"{player_2}{player_2}" and "g" in available_fields:
+            g= f"{player_2}"
+            
+    elif f"{e}{g}" == f"{player_2}{player_2}" and "c" in available_fields:
+            c = f"{player_2}"
+
+    elif f"{g}{c}" == f"{player_2}{player_2}" and "e" in available_fields:
+            e = f"{player_2}"
+
 
     #The Code Below is used for Blocking the Opponent Horizontal
-    if f"{a}{b}" == f"{player_1}{player_1}" and "c" in available_fields:
+    elif f"{a}{b}" == f"{player_1}{player_1}" and "c" in available_fields:
           c = f"{player_2}"
             
     elif f"{b}{c}" == f"{player_1}{player_1}" and "a" in available_fields:
@@ -169,7 +189,25 @@ def computer():
 
     elif f"{c}{i}" == f"{player_1}{player_1}" and "f" in available_fields:
             f = f"{player_2}"
-        
+
+    #the Code below is Used for Blocking the Oponnent Diagonally
+    elif f"{a}{e}" == f"{player_1}{player_1}" and "i" in available_fields:
+            i = f"{player_2}"
+            
+    elif f"{e}{i}" == f"{player_1}{player_1}" and "a" in available_fields:
+            a = f"{player_2}"
+            
+    elif f"{a}{i}" == f"{player_1}{player_1}" and "e" in available_fields:
+            e = f"{player_2}"
+            
+    elif f"{c}{e}" == f"{player_1}{player_1}" and "g" in available_fields:
+            g= f"{player_2}"
+            
+    elif f"{e}{g}" == f"{player_1}{player_1}" and "c" in available_fields:
+            c = f"{player_2}"
+
+    elif f"{g}{c}" == f"{player_1}{player_1}" and "e" in available_fields:
+            e = f"{player_2}"
 
 
     elif available_fields:
