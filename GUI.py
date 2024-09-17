@@ -19,11 +19,30 @@ button = tk.Button(
     fg="yellow"
 )
 
-button.pack()
+#button.pack()
 
-entry = tk.Entry(fg="yellow", bg="blue", width=50)
+#entry = tk.Entry(fg="yellow", bg="blue", width=50)
+#
+#border_effects = {
+#    "flat": tk.FLAT,
+#    "Sunken": tk.SUNKEN,
+#    "raised": tk.RAISED,
+#    "groove": tk.GROOVE,
+#    "ridge": tk.RIDGE,
+#}
+#
+#for relief_name, relief in border_effects.items():
+#    frame = tk.Frame(master=window, relief=relief, borderwidth=5)
+#    frame.pack(side=tk.LEFT)
+#    label = tk.Label(master=frame, text=relief_name)
+#    label.pack()
+#
+#window.mainloop()
 
+frame1 = tk.Frame(master=window, width=100, height=100, bg="red")
+frame1.pack()
 
+frame2 = tk.Frame(master=window, width=50, height=50 bg="yellow")
+frame2.pack()
 
-window.mainloop()
-
+frame3 = tk.Frame(master)
