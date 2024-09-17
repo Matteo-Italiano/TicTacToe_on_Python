@@ -10,14 +10,14 @@ window = tk.Tk()
 #    height=10
 #    )
 #label.pack()
-
-button = tk.Button(
-    text="Click me!",
-    width=25,
-    height=5,
-    bg="blue",
-    fg="yellow"
-)
+#
+##button = tk.Button(
+##    text="Click me!",
+##    width=25,
+##    height=5,
+##    bg="blue",
+##    fg="yellow"
+#)
 
 #button.pack()
 
@@ -39,10 +39,10 @@ button = tk.Button(
 #
 #window.mainloop()
 
-frame1 = tk.Frame(master=window, width=100, height=100, bg="red")
-frame1.pack()
-
-frame2 = tk.Frame(master=window, width=50, height=50 bg="yellow")
-frame2.pack()
-
-frame3 = tk.Frame(master)
+#frame1 = tk.Frame(master=window, width=100, height=100, bg="red")
+#frame1.pack()
+#
+#frame2 = tk.Frame(master=window, width=50, height=50 bg="yellow")
+#frame2.pack()
+#
+#frame3 = tk.Frame(master)

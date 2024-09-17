@@ -1,0 +1,278 @@
+import tkinter as tk
+import random
+
+# Global variables for game state
+player_1 = "X"
+player_2 = "O"
+
+a, b, c = 1, 2, 3
+d, e, f = 4, 5, 6
+g, h, i = 7, 8, 9
+
+def print_area():
+    print(f" >>> {a} {b} {c}\n >>> {d} {e} {f}\n >>> {g} {h} {i}")
+
+def has_won(player):
+    player_validation_string = f"{player}{player}{player}"
+
+    if f"{a}{b}{c}" == player_validation_string:
+        return True
+    if f"{d}{e}{f}" == player_validation_string:
+        return True
+    if f"{g}{h}{i}" == player_validation_string:
+        return True
+    if f"{a}{d}{g}" == player_validation_string:
+        return True
+    if f"{b}{e}{h}" == player_validation_string:
+        return True
+    if f"{c}{f}{i}" == player_validation_string:
+        return True
+    if f"{a}{e}{i}" == player_validation_string:
+        return True
+    if f"{g}{e}{c}" == player_validation_string:
+        return True
+
+    return False
+
+def computer():
+    global a, b, c, d, e, f, g, h, i
+    available_fields = []
+
+    almost_winning_constelation = f"{player_2}{player_2}"
+    almost_loosing_constelation = f"{player_1}{player_1}"
+
+    if isinstance(a, int):
+        available_fields.append("a")
+    if isinstance(b, int):
+        available_fields.append("b")
+    if isinstance(c, int):
+        available_fields.append("c")
+    if isinstance(d, int):
+        available_fields.append("d")
+    if isinstance(e, int):
+        available_fields.append("e")
+    if isinstance(f, int):
+        available_fields.append("f")
+    if isinstance(g, int):
+        available_fields.append("g")
+    if isinstance(h, int):
+        available_fields.append("h")
+    if isinstance(i, int):
+        available_fields.append("i")
+
+    # The code below is used for Winning when there's the Opportunity Horizontal
+    if f"{a}{b}" == almost_winning_constelation and "c" in available_fields:
+        c = f"{player_2}"
+    elif f"{b}{c}" == almost_winning_constelation and "a" in available_fields:
+        a = f"{player_2}"
+    elif f"{a}{c}" == almost_winning_constelation and "b" in available_fields:
+        b = f"{player_2}"
+    elif f"{d}{e}" == almost_winning_constelation and "f" in available_fields:
+        f = f"{player_2}"
+    elif f"{e}{f}" == almost_winning_constelation and "d" in available_fields:
+        d = f"{player_2}"
+    elif f"{d}{f}" == almost_winning_constelation and "e" in available_fields:
+        e = f"{player_2}"
+    elif f"{g}{h}" == almost_winning_constelation and "i" in available_fields:
+        i = f"{player_2}"
+    elif f"{h}{i}" == almost_winning_constelation and "g" in available_fields:
+        g = f"{player_2}"
+    elif f"{g}{i}" == almost_winning_constelation and "h" in available_fields:
+        h = f"{player_2}"
+
+    # The Code Below is used to win Vertical
+    elif f"{a}{d}" == almost_winning_constelation and "g" in available_fields:
+        g = f"{player_2}"
+    elif f"{d}{g}" == almost_winning_constelation and "a" in available_fields:
+        a = f"{player_2}"
+    elif f"{a}{g}" == almost_winning_constelation and "d" in available_fields:
+        d = f"{player_2}"
+    elif f"{b}{e}" == almost_winning_constelation and "h" in available_fields:
+        h = f"{player_2}"
+    elif f"{e}{h}" == almost_winning_constelation and "b" in available_fields:
+        b = f"{player_2}"
+    elif f"{b}{h}" == almost_winning_constelation and "e" in available_fields:
+        e = f"{player_2}"
+    elif f"{c}{f}" == almost_winning_constelation and "i" in available_fields:
+        i = f"{player_2}"
+    elif f"{f}{i}" == almost_winning_constelation and "h" in available_fields:
+        c = f"{player_2}"
+    elif f"{c}{i}" == almost_winning_constelation and "f" in available_fields:
+        f = f"{player_2}"
+
+    # The code below is used for winning Diagonally
+    elif f"{a}{e}" == almost_winning_constelation and "i" in available_fields:
+        i = f"{player_2}"
+    elif f"{e}{i}" == almost_winning_constelation and "a" in available_fields:
+        a = f"{player_2}"
+    elif f"{a}{i}" == almost_winning_constelation and "e" in available_fields:
+        e = f"{player_2}"
+    elif f"{c}{e}" == almost_winning_constelation and "g" in available_fields:
+        g = f"{player_2}"
+    elif f"{e}{g}" == almost_winning_constelation and "c" in available_fields:
+        c = f"{player_2}"
+    elif f"{g}{c}" == almost_winning_constelation and "e" in available_fields:
+        e = f"{player_2}"
+
+    # The Code Below is used for Blocking the Opponent Horizontal
+    elif f"{a}{b}" == almost_loosing_constelation and "c" in available_fields:
+        c = f"{player_2}"
+    elif f"{b}{c}" == almost_loosing_constelation and "a" in available_fields:
+        a = f"{player_2}"
+    elif f"{a}{c}" == almost_loosing_constelation and "b" in available_fields:
+        b = f"{player_2}"
+    elif f"{d}{e}" == almost_loosing_constelation and "f" in available_fields:
+        f = f"{player_2}"
+    elif f"{e}{f}" == almost_loosing_constelation and "d" in available_fields:
+        d = f"{player_2}"
+    elif f"{d}{f}" == almost_loosing_constelation and "e" in available_fields:
+        e = f"{player_2}"
+    elif f"{g}{h}" == almost_loosing_constelation and "i" in available_fields:
+        i = f"{player_2}"
+    elif f"{h}{i}" == almost_loosing_constelation and "g" in available_fields:
+        g = f"{player_2}"
+    elif f"{g}{i}" == almost_loosing_constelation and "h" in available_fields:
+        h = f"{player_2}"
+
+    # The Code below is used for Blocking vertical
+    elif f"{a}{d}" == almost_loosing_constelation and "g" in available_fields:
+        g = f"{player_2}"
+    elif f"{d}{g}" == almost_loosing_constelation and "a" in available_fields:
+        a = f"{player_2}"
+    elif f"{a}{g}" == almost_loosing_constelation and "d" in available_fields:
+        d = f"{player_2}"
+    elif f"{b}{e}" == almost_loosing_constelation and "h" in available_fields:
+        h = f"{player_2}"
+    elif f"{e}{h}" == almost_loosing_constelation and "b" in available_fields:
+        b = f"{player_2}"
+    elif f"{b}{h}" == almost_loosing_constelation and "e" in available_fields:
+        e = f"{player_2}"
+    elif f"{c}{f}" == almost_loosing_constelation and "i" in available_fields:
+        i = f"{player_2}"
+    elif f"{f}{i}" == almost_loosing_constelation and "h" in available_fields:
+        c = f"{player_2}"
+    elif f"{c}{i}" == almost_loosing_constelation and "f" in available_fields:
+        f = f"{player_2}"
+
+    # The code below is used for blocking Diagonally
+    elif f"{a}{e}" == almost_loosing_constelation and "i" in available_fields:
+        i = f"{player_2}"
+    elif f"{e}{i}" == almost_loosing_constelation and "a" in available_fields:
+        a = f"{player_2}"
+    elif f"{a}{i}" == almost_loosing_constelation and "e" in available_fields:
+        e = f"{player_2}"
+    elif f"{c}{e}" == almost_loosing_constelation and "g" in available_fields:
+        g = f"{player_2}"
+    elif f"{e}{g}" == almost_loosing_constelation and "c" in available_fields:
+        c = f"{player_2}"
+    elif f"{g}{c}" == almost_loosing_constelation and "e" in available_fields:
+        e = f"{player_2}"
+
+    if len(available_fields) == 0:
+        return
+
+    choice = random.choice(available_fields)
+
+    if choice == "a":
+        a = f"{player_2}"
+    elif choice == "b":
+        b = f"{player_2}"
+    elif choice == "c":
+        c = f"{player_2}"
+    elif choice == "d":
+        d = f"{player_2}"
+    elif choice == "e":
+        e = f"{player_2}"
+    elif choice == "f":
+        f = f"{player_2}"
+    elif choice == "g":
+        g = f"{player_2}"
+    elif choice == "h":
+        h = f"{player_2}"
+    elif choice == "i":
+        i = f"{player_2}"
+
+def button_click(btn, position):
+    global player_1, player_2
+    if btn.cget("text") == "" and not has_won(player_1) and not has_won(player_2):
+        btn.config(text=player_1)
+        update_game_state(position, player_1)
+        if not has_won(player_1) and not is_board_full():
+            computer()
+            update_buttons()
+            if has_won(player_2):
+                status_label.config(text="Player O wins!")
+            elif is_board_full():
+                status_label.config(text="It's a tie!")
+        elif has_won(player_1):
+            status_label.config(text="Player X wins!")
+        elif is_board_full():
+            status_label.config(text="It's a tie!")
+
+def update_game_state(position, player):
+    global a, b, c, d, e, f, g, h, i
+    if position == "a":
+        a = player
+    elif position == "b":
+        b = player
+    elif position == "c":
+        c = player
+    elif position == "d":
+        d = player
+    elif position == "e":
+        e = player
+    elif position == "f":
+        f = player
+    elif position == "g":
+        g = player
+    elif position == "h":
+        h = player
+    elif position == "i":
+        i = player
+
+def is_board_full():
+    return all(pos in [player_1, player_2] for pos in [a, b, c, d, e, f, g, h, i])
+
+def update_buttons():
+    button_a.config(text=a if a in [player_1, player_2] else "")
+    button_b.config(text=b if b in [player_1, player_2] else "")
+    button_c.config(text=c if c in [player_1, player_2] else "")
+    button_d.config(text=d if d in [player_1, player_2] else "")
+    button_e.config(text=e if e in [player_1, player_2] else "")
+    button_f.config(text=f if f in [player_1, player_2] else "")
+    button_g.config(text=g if g in [player_1, player_2] else "")
+    button_h.config(text=h if h in [player_1, player_2] else "")
+    button_i.config(text=i if i in [player_1, player_2] else "")
+
+# Create main window
+root = tk.Tk()
+root.title("Tic Tac Toe")
+
+# Create buttons
+button_a = tk.Button(root, text="", width=10, height=3, command=lambda: button_click(button_a, "a"))
+button_b = tk.Button(root, text="", width=10, height=3, command=lambda: button_click(button_b, "b"))
+button_c = tk.Button(root, text="", width=10, height=3, command=lambda: button_click(button_c, "c"))
+button_d = tk.Button(root, text="", width=10, height=3, command=lambda: button_click(button_d, "d"))
+button_e = tk.Button(root, text="", width=10, height=3, command=lambda: button_click(button_e, "e"))
+button_f = tk.Button(root, text="", width=10, height=3, command=lambda: button_click(button_f, "f"))
+button_g = tk.Button(root, text="", width=10, height=3, command=lambda: button_click(button_g, "g"))
+button_h = tk.Button(root, text="", width=10, height=3, command=lambda: button_click(button_h, "h"))
+button_i = tk.Button(root, text="", width=10, height=3, command=lambda: button_click(button_i, "i"))
+
+# Layout buttons
+button_a.grid(row=0, column=0)
+button_b.grid(row=0, column=1)
+button_c.grid(row=0, column=2)
+button_d.grid(row=1, column=0)
+button_e.grid(row=1, column=1)
+button_f.grid(row=1, column=2)
+button_g.grid(row=2, column=0)
+button_h.grid(row=2, column=1)
+button_i.grid(row=2, column=2)
+
+# Status label
+status_label = tk.Label(root, text="Player X's turn", font=('Helvetica', 14))
+status_label.grid(row=3, column=0, columnspan=3)
+
+# Run the application
+root.mainloop()
