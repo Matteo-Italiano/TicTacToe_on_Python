@@ -2,43 +2,43 @@ import random
 
 import tkinter as tk
 
-def button_click():
-      print()
-   
-
-
-window = tk.Tk()
-window.title("Tic-Tac-Toe")
-
-
-button00 = tk.Button(text="1", width=10, height=5, bg="white", fg="black", )
-button00.grid(row=0, column=0, padx=5, pady=5)
-
-button01 = tk.Button(text="2", width=10, height=5, bg="white", fg="black",)
-button01.grid(row=0, column=1, padx=5, pady=5)
-
-button02 = tk.Button(text="3", width=10, height=5, bg="white", fg="black",)
-button02.grid(row=0, column=2, padx=5, pady=5)
-
-button10 = tk.Button(text="4", width=10, height=5, bg="white", fg="black",)
-button10.grid(row=1, column=0, padx=5, pady=5)
-
-button11 = tk.Button(text="5", width=10, height=5, bg="white", fg="black",)
-button11.grid(row=1, column=1, padx=5, pady=5)
-
-button12 = tk.Button(text="6", width=10, height=5, bg="white", fg="black",)
-button12.grid(row=1, column=2, padx=5, pady=5)
-
-button20 = tk.Button(text="7", width=10, height=5, bg="white", fg="black",)
-button20.grid(row=2, column=0, padx=5, pady=5)
-
-button21 = tk.Button(text="8", width=10, height=5, bg="white", fg="black",)
-button21.grid(row=2, column=1, padx=5, pady=5)
-
-button22 = tk.Button(text="9", width=10, height=5, bg="white", fg="black",)
-button22.grid(row=2, column=2, padx=5, pady=5)
-
-window.mainloop()
+#def button_click():
+#      print()
+#   
+#
+#
+#window = tk.Tk()
+#window.title("Tic-Tac-Toe")
+#
+#
+#button00 = tk.Button(text="1", width=10, height=5, bg="white", fg="black", )
+#button00.grid(row=0, column=0, padx=5, pady=5)
+#
+#button01 = tk.Button(text="2", width=10, height=5, bg="white", fg="black",)
+#button01.grid(row=0, column=1, padx=5, pady=5)
+#
+#button02 = tk.Button(text="3", width=10, height=5, bg="white", fg="black",)
+#button02.grid(row=0, column=2, padx=5, pady=5)
+#
+#button10 = tk.Button(text="4", width=10, height=5, bg="white", fg="black",)
+#button10.grid(row=1, column=0, padx=5, pady=5)
+#
+#button11 = tk.Button(text="5", width=10, height=5, bg="white", fg="black",)
+#button11.grid(row=1, column=1, padx=5, pady=5)
+#
+#button12 = tk.Button(text="6", width=10, height=5, bg="white", fg="black",)
+#button12.grid(row=1, column=2, padx=5, pady=5)
+#
+#button20 = tk.Button(text="7", width=10, height=5, bg="white", fg="black",)
+#button20.grid(row=2, column=0, padx=5, pady=5)
+#
+#button21 = tk.Button(text="8", width=10, height=5, bg="white", fg="black",)
+#button21.grid(row=2, column=1, padx=5, pady=5)
+#
+#button22 = tk.Button(text="9", width=10, height=5, bg="white", fg="black",)
+#button22.grid(row=2, column=2, padx=5, pady=5)
+#
+#window.mainloop()
 
 
 
