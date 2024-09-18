@@ -113,9 +113,11 @@ def button_input_changer(button, field_var_name):
             computer_input_changer()
             current_turn = "X"
         label.config(text=f"Wähle ein Feld aus ({current_turn}):")
-
 def computer_input_changer():
     global current_turn, a, b, c, d, e, f, g, h, i
+
+    almost_loosing_constelation = f"{player_1}{player_1}"
+    almost_winning_constelation = f"{player_2}{player_2}"
 
     available_fields = []
 
@@ -137,35 +139,191 @@ def computer_input_changer():
         available_fields.append("h")
     if isinstance(i, int):
         available_fields.append("i")
+    
+    #the code below is used for blocking horizontally
+    if f"{a}{b}" == almost_winning_constelation and "c" in available_fields:
+        button_input_changer(buttons[2], 'c')
+        return
+    elif f"{b}{c}" == almost_winning_constelation and "a" in available_fields:
+        button_input_changer(buttons[0], 'a')
+        return
+    elif f"{a}{c}" == almost_winning_constelation and "b" in available_fields:
+        button_input_changer(buttons[1], 'b')
+        return
+    elif f"{d}{e}" == almost_winning_constelation and "f" in available_fields:
+        button_input_changer(buttons[5], 'f')
+        return
+    elif f"{e}{f}" == almost_winning_constelation and "d" in available_fields:
+        button_input_changer(buttons[3], 'd')
+        return
+    elif f"{d}{f}" == almost_winning_constelation and "e" in available_fields:
+        button_input_changer(buttons[4], 'e')
+        return
+    elif f"{g}{h}" == almost_winning_constelation and "i" in available_fields:
+        button_input_changer(buttons[8], 'i')
+        return
+    elif f"{h}{i}" == almost_winning_constelation and "g" in available_fields:
+        button_input_changer(buttons[6], 'g')
+        return
+    elif f"{g}{i}" == almost_winning_constelation and "h" in available_fields:
+        button_input_changer(buttons[7], 'h')
+        return
+    elif f"{a}{d}" == almost_winning_constelation and "g" in available_fields:
+        button_input_changer(buttons[6], 'g')
+        return
+    
+    #the code below is used for Blocking Verticaly
+    elif f"{d}{g}" == almost_winning_constelation and "a" in available_fields:
+        button_input_changer(buttons[0], 'a')
+        return
+    elif f"{a}{g}" == almost_winning_constelation and "d" in available_fields:
+        button_input_changer(buttons[3], 'd')
+        return
+    elif f"{b}{e}" == almost_winning_constelation and "h" in available_fields:
+        button_input_changer(buttons[7], 'h')
+        return
+    elif f"{e}{h}" == almost_winning_constelation and "b" in available_fields:
+        button_input_changer(buttons[1], 'b')
+        return
+    elif f"{b}{h}" == almost_winning_constelation and "e" in available_fields:
+        button_input_changer(buttons[4], 'e')
+        return
+    elif f"{c}{f}" == almost_winning_constelation and "i" in available_fields:
+        button_input_changer(buttons[8], 'i')
+        return
+    elif f"{f}{i}" == almost_winning_constelation and "c" in available_fields:
+        button_input_changer(buttons[2], 'c')
+        return
+    elif f"{c}{i}" == almost_winning_constelation and "f" in available_fields:
+        button_input_changer(buttons[5], 'f')
 
-    if available_fields:
+    #the code below is used for diagonal winning
+        return
+    elif f"{a}{e}" == almost_winning_constelation and "i" in available_fields:
+        button_input_changer(buttons[8], 'i')
+        return
+    elif f"{e}{i}" == almost_winning_constelation and "a" in available_fields:
+        button_input_changer(buttons[0], 'a')
+        return
+    elif f"{a}{i}" == almost_winning_constelation and "e" in available_fields:
+        button_input_changer(buttons[4], 'e')
+        return
+    elif f"{c}{e}" == almost_winning_constelation and "g" in available_fields:
+        button_input_changer(buttons[6], 'g')
+        return
+    elif f"{e}{g}" == almost_winning_constelation and "c" in available_fields:
+        button_input_changer(buttons[2], 'c')
+        return
+    elif f"{g}{c}" == almost_winning_constelation and "e" in available_fields:
+        button_input_changer(buttons[4], 'e')
+        return
+
+   # The Code Below is used for Blocking the Opponent Horizontal
+    elif f"{a}{b}" == almost_loosing_constelation and "c" in available_fields:
+        button_input_changer(buttons[2], 'c')
+        return
+    elif f"{b}{c}" == almost_loosing_constelation and "a" in available_fields:
+        button_input_changer(buttons[0], 'a')
+        return
+    elif f"{a}{c}" == almost_loosing_constelation and "b" in available_fields:
+        button_input_changer(buttons[1], 'b')
+        return
+    elif f"{d}{e}" == almost_loosing_constelation and "f" in available_fields:
+        button_input_changer(buttons[5], 'f')
+        return
+    elif f"{e}{f}" == almost_loosing_constelation and "d" in available_fields:
+        button_input_changer(buttons[3], 'd')
+        return
+    elif f"{d}{f}" == almost_loosing_constelation and "e" in available_fields:
+        button_input_changer(buttons[4], 'e')
+        return
+    elif f"{g}{h}" == almost_loosing_constelation and "i" in available_fields:
+        button_input_changer(buttons[8], 'i')
+        return
+    elif f"{h}{i}" == almost_loosing_constelation and "g" in available_fields:
+        button_input_changer(buttons[6], 'g')
+        return
+    elif f"{g}{i}" == almost_loosing_constelation and "h" in available_fields:
+        button_input_changer(buttons[7], 'h')
+        return
+    # The Code below is used for Blocking Vertical
+    elif f"{a}{d}" == almost_loosing_constelation and "g" in available_fields:
+        button_input_changer(buttons[6], 'g')
+        return
+    elif f"{d}{g}" == almost_loosing_constelation and "a" in available_fields:
+        button_input_changer(buttons[0], 'a')
+        return
+    elif f"{a}{g}" == almost_loosing_constelation and "d" in available_fields:
+        button_input_changer(buttons[3], 'd')
+        return
+    elif f"{b}{e}" == almost_loosing_constelation and "h" in available_fields:
+        button_input_changer(buttons[7], 'h')
+        return
+    elif f"{e}{h}" == almost_loosing_constelation and "b" in available_fields:
+        button_input_changer(buttons[1], 'b')
+        return
+    elif f"{b}{h}" == almost_loosing_constelation and "e" in available_fields:
+        button_input_changer(buttons[4], 'e')
+        return
+    elif f"{c}{f}" == almost_loosing_constelation and "i" in available_fields:
+        button_input_changer(buttons[8], 'i')
+        return
+    
+    #The Code Below is used to Block the Opponent Diagonally
+    elif f"{a}{e}" == almost_loosing_constelation and "i" in available_fields:
+            button_input_changer(buttons[8], 'i')
+            return
+            
+    elif f"{e}{i}" == almost_loosing_constelation and "a" in available_fields:
+            button_input_changer(buttons[0], 'a')
+            return
+            
+    elif f"{a}{i}" == almost_loosing_constelation and "e" in available_fields:
+            button_input_changer(buttons[4], 'e')
+            return
+            
+    elif f"{c}{e}" == almost_loosing_constelation and "g" in available_fields:
+            button_input_changer(buttons[6], 'g')
+            return
+            
+    elif f"{e}{g}" == almost_loosing_constelation and "c" in available_fields:
+            button_input_changer(buttons[2], 'c')
+            return
+    
+    elif f"{g}{c}" == almost_loosing_constelation and "e" in available_fields:
+            button_input_changer(buttons[4], 'e')
+            return
+
+
+
+    elif available_fields:
         choice = random.choice(available_fields)
         if choice == "a":
-            buttons[0].config(text=f"{current_turn}")
+            button_input_changer(buttons[0], 'a')
             a = current_turn
         elif choice == "b":
-            buttons[1].config(text=f"{current_turn}")
+            button_input_changer(buttons[1], 'b')
             b = current_turn
         elif choice == "c":
-            buttons[2].config(text=f"{current_turn}")
+            button_input_changer(buttons[2], 'c')
             c = current_turn
         elif choice == "d":
-            buttons[3].config(text=f"{current_turn}")
+            button_input_changer(buttons[3], 'd')
             d = current_turn
         elif choice == "e":
-            buttons[4].config(text=f"{current_turn}")
+            button_input_changer(buttons[4], 'e')
             e = current_turn
         elif choice == "f":
-            buttons[5].config(text=f"{current_turn}")
+            button_input_changer(buttons[5], 'f')
             f = current_turn
         elif choice == "g":
-            buttons[6].config(text=f"{current_turn}")
+            button_input_changer(buttons[6], 'g')
             g = current_turn
         elif choice == "h":
-            buttons[7].config(text=f"{current_turn}")
+            button_input_changer(buttons[7], 'h')
             h = current_turn
         elif choice == "i":
-            buttons[8].config(text=f"{current_turn}")
+            button_input_changer(buttons[8], 'i')
             i = current_turn
 
 def game_window():
