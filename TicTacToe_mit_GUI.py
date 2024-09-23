@@ -113,10 +113,10 @@ def button_input_changer(button, field_var_name):
         else:
             current_turn = "O" if current_turn == "X" else "X"
         
-        if playing_vs_computer == True and current_turn == "O":
-            computer_input_changer()
-            current_turn = "X"
-        label.config(text=f"Wähle ein Feld aus ({current_turn}):")
+            if playing_vs_computer == True and current_turn == "O":
+                computer_input_changer()
+                current_turn = "X"
+            label.config(text=f"Wähle ein Feld aus ({current_turn}):")
 def computer_input_changer():
     global current_turn, a, b, c, d, e, f, g, h, i
 
@@ -144,7 +144,7 @@ def computer_input_changer():
     if isinstance(i, int):
         available_fields.append("i")
     
-    #the code below is used for blocking horizontally
+    #the code below is used for winning horizontally
     if f"{a}{b}" == almost_winning_constelation and "c" in available_fields:
         button_input_changer(buttons[2], 'c')
         return
@@ -176,7 +176,7 @@ def computer_input_changer():
         button_input_changer(buttons[6], 'g')
         return
     
-    #the code below is used for Blocking Verticaly
+    #the code below is used for winning Verticaly
     elif f"{d}{g}" == almost_winning_constelation and "a" in available_fields:
         button_input_changer(buttons[0], 'a')
         return
