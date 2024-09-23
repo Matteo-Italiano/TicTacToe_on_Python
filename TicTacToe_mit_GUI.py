@@ -4,6 +4,7 @@ import random
 player_1 = "X"
 player_2 = "O"  # Auch Computer
 playing_vs_computer = False
+computers_turn = False
 
 # Initiale Werte für das Spielfeld
 def reset_game_state():
@@ -94,6 +95,9 @@ def restart_game():
 def button_input_changer(button, field_var_name):
     global current_turn, label
 
+    if computers_turn == True:
+        print()
+
     if isinstance(globals()[field_var_name], int):
         globals()[field_var_name] = current_turn  
         button.config(text=current_turn)
@@ -109,7 +113,7 @@ def button_input_changer(button, field_var_name):
         else:
             current_turn = "O" if current_turn == "X" else "X"
         
-        if playing_vs_computer and current_turn == "O":
+        if playing_vs_computer == True and current_turn == "O":
             computer_input_changer()
             current_turn = "X"
         label.config(text=f"Wähle ein Feld aus ({current_turn}):")
@@ -300,31 +304,23 @@ def computer_input_changer():
         choice = random.choice(available_fields)
         if choice == "a":
             button_input_changer(buttons[0], 'a')
-            a = current_turn
         elif choice == "b":
             button_input_changer(buttons[1], 'b')
-            b = current_turn
         elif choice == "c":
             button_input_changer(buttons[2], 'c')
-            c = current_turn
         elif choice == "d":
             button_input_changer(buttons[3], 'd')
-            d = current_turn
         elif choice == "e":
             button_input_changer(buttons[4], 'e')
             e = current_turn
         elif choice == "f":
             button_input_changer(buttons[5], 'f')
-            f = current_turn
         elif choice == "g":
             button_input_changer(buttons[6], 'g')
-            g = current_turn
         elif choice == "h":
             button_input_changer(buttons[7], 'h')
-            h = current_turn
         elif choice == "i":
             button_input_changer(buttons[8], 'i')
-            i = current_turn
 
 def game_window():
     global label, buttons, window
