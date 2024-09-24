@@ -255,6 +255,9 @@ def computer_input_changer():
     elif f"{f}{i}" == almost_loosing_constelation and "c" in available_fields:
         button_input_changer(buttons[2], "c")
         return
+    elif f"{c}{i}" == almost_loosing_constelation and "f" in available_fields:
+        button_input_changer(buttons[5], "f")
+        return
 
 
 
