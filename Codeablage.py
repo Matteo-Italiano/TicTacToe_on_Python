@@ -100,3 +100,55 @@
     #        button_input_changer(button_c, 'c')
     #elif f"{g}{c}" == almost_loosing_constelation and "e" in available_fields:
     #        button_input_changer(button_d, 'e')
+
+
+
+
+ #def check_and_execute(positions, constellation, availeble_fields, buttons):
+ #       for (x, y, z, button_index, button_char) in positions:
+#
+ #           if f"{x}{y}" == almost_winning_constelation and z in available_fields:
+ #               button_input_changer(buttons[button_index], button_char)
+ #               return
+ #           elif f"{y}{z}" == almost_winning_constelation and x in available_fields:
+ #               button_input_changer(buttons[button_index], button_char)
+ #               return
+ #           elif f"{x}{z}" == almost_winning_constelation and x in available_fields:
+ #               button_input_changer(buttons[button_index], button_char)
+ #               return
+ #           elif f"{x}{y}" == almost_loosing_constelation and z in available_fields:
+ #               button_input_changer(buttons[button_index], button_char)
+ #               return
+ #           elif f"{y}{z}" == almost_loosing_constelation and x in available_fields:
+ #               button_input_changer(buttons[button_index], button_char)
+ #               return
+ #           elif f"{x}{z}" == almost_loosing_constelation and x in available_fields:
+ #               button_input_changer(buttons[button_index], button_char)
+ #               return
+ #       
+ #   winning_positions = [
+#
+ #   (a, b, 'c', 2, 'c'), (b, c, 'a', 0, 'a'), (a, c, 'b', 1, 'b'), # Horizontal
+ #   (d, e, 'f', 5, 'f'), (e, f, 'd', 3, 'd'), (d, f, 'e', 4, 'e'),
+ #   (g, h, 'i', 8, 'i'), (h, i, 'g', 6, 'g'), (g, i, 'h', 7, 'h'),
+ #   (a, d, 'g', 6, 'g'), (d, g, 'a', 0, 'a'), (a, g, 'd', 3, 'd'), # Vertikal
+ #   (b, e, 'h', 7, 'h'), (e, h, 'b', 1, 'b'), (b, h, 'e', 4, 'e'),
+ #   (c, f, 'i', 8, 'i'), (f, i, 'c', 2, 'c'), (c, i, 'f', 5, 'f'),
+ #   (a, e, 'i', 8, 'i'), (e, i, 'a', 0, 'a'), (a, i, 'e', 4, 'e'), # Diagonal
+ #   (c, e, 'g', 6, 'g'), (e, g, 'c', 2, 'c'), (g, c, 'e', 4, 'e')
+#
+ #   ]
+#
+ #   blocking_positions = [
+#
+ #   (a, b, 'c', 2, 'c'), (b, c, 'a', 0, 'a'), (a, c, 'b', 1, 'b'), # Horizontal
+ #   (d, e, 'f', 5, 'f'), (e, f, 'd', 3, 'd'), (d, f, 'e', 4, 'e'),
+ #   (g, h, 'i', 8, 'i'), (h, i, 'g', 6, 'g'), (g, i, 'h', 7, 'h'),
+ #   (a, d, 'g', 6, 'g'), (d, g, 'a', 0, 'a'), (a, g, 'd', 3, 'd'), # Vertikal
+ #   (b, e, 'h', 7, 'h'), (e, h, 'b', 1, 'b'), (b, h, 'e', 4, 'e'),
+ #   (c, f, 'i', 8, 'i'), (f, i, 'c', 2, 'c'), (c, i, 'f', 5, 'f'),
+ #   (a, e, 'i', 8, 'i'), (e, i, 'a', 0, 'a'), (a, i, 'e', 4, 'e'), # Diagonal
+ #   (c, e, 'g', 6, 'g'), (e, g, 'c', 2, 'c'), (g, c, 'e', 4, 'e')
+ #   ]
+ #       
+ #   check_and_execute(blocking_positions, almost_loosing_constelation, available_fields, buttons)

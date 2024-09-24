@@ -35,7 +35,9 @@ def mode_selection():
     selection_window.mainloop()
 
 def has_won(player):
+
     player_validation_string = f"{player}{player}{player}"
+
     if f"{a}{b}{c}" == player_validation_string:
         return True
     if f"{d}{e}{f}" == player_validation_string:
@@ -81,16 +83,11 @@ def ask_for_restart():
 def restart_game():
     reset_game_state()  # Spielfeld zurücksetzen
     label.config(text=f"Wähle ein Feld aus ({current_turn}):")
+    
     # Buttons zurücksetzen
-    buttons[0].config(text=a, state="normal")
-    buttons[1].config(text=b, state="normal")
-    buttons[2].config(text=c, state="normal")
-    buttons[3].config(text=d, state="normal")
-    buttons[4].config(text=e, state="normal")
-    buttons[5].config(text=f, state="normal")
-    buttons[6].config(text=g, state="normal")
-    buttons[7].config(text=h, state="normal")
-    buttons[8].config(text=i, state="normal")
+    for idx, button in enumerate(buttons):
+        button.config(text=globals()[chr(97 + idx)], state="normal")
+
 
 def button_input_changer(button, field_var_name):
     global current_turn, label
@@ -112,37 +109,20 @@ def button_input_changer(button, field_var_name):
             ask_for_restart()
         else:
             current_turn = "O" if current_turn == "X" else "X"
+            label.config(text=f"Wähle ein Feld aus ({current_turn}):")
         
             if playing_vs_computer == True and current_turn == "O":
                 computer_input_changer()
                 current_turn = "X"
-            label.config(text=f"Wähle ein Feld aus ({current_turn}):")
+                
+
 def computer_input_changer():
     global current_turn, a, b, c, d, e, f, g, h, i
 
     almost_loosing_constelation = f"{player_1}{player_1}"
     almost_winning_constelation = f"{player_2}{player_2}"
 
-    available_fields = []
-
-    if isinstance(a, int):
-        available_fields.append("a")
-    if isinstance(b, int):
-        available_fields.append("b")
-    if isinstance(c, int):
-        available_fields.append("c")
-    if isinstance(d, int):
-        available_fields.append("d")
-    if isinstance(e, int):
-        available_fields.append("e")
-    if isinstance(f, int):
-        available_fields.append("f")
-    if isinstance(g, int):
-        available_fields.append("g")
-    if isinstance(h, int):
-        available_fields.append("h")
-    if isinstance(i, int):
-        available_fields.append("i")
+    available_fields = [field for field in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'] if isinstance(globals()[field], int)]   
     
     #the code below is used for winning horizontally
     if f"{a}{b}" == almost_winning_constelation and "c" in available_fields:
@@ -272,7 +252,12 @@ def computer_input_changer():
     elif f"{c}{f}" == almost_loosing_constelation and "i" in available_fields:
         button_input_changer(buttons[8], 'i')
         return
-    
+    elif f"{f}{i}" == almost_loosing_constelation and "c" in available_fields:
+        button_input_changer(buttons[2], "c")
+        return
+
+
+
     #The Code Below is used to Block the Opponent Diagonally
     elif f"{a}{e}" == almost_loosing_constelation and "i" in available_fields:
             button_input_changer(buttons[8], 'i')
@@ -302,25 +287,8 @@ def computer_input_changer():
 
     elif available_fields:
         choice = random.choice(available_fields)
-        if choice == "a":
-            button_input_changer(buttons[0], 'a')
-        elif choice == "b":
-            button_input_changer(buttons[1], 'b')
-        elif choice == "c":
-            button_input_changer(buttons[2], 'c')
-        elif choice == "d":
-            button_input_changer(buttons[3], 'd')
-        elif choice == "e":
-            button_input_changer(buttons[4], 'e')
-            e = current_turn
-        elif choice == "f":
-            button_input_changer(buttons[5], 'f')
-        elif choice == "g":
-            button_input_changer(buttons[6], 'g')
-        elif choice == "h":
-            button_input_changer(buttons[7], 'h')
-        elif choice == "i":
-            button_input_changer(buttons[8], 'i')
+        index = ord(choice) - ord('a')  # Berechnet den Index basierend auf dem gewählten Buchstaben
+        button_input_changer(buttons[index], choice)
 
 def game_window():
     global label, buttons, window
