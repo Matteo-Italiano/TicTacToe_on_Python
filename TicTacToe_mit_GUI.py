@@ -1,10 +1,12 @@
+import copy
 import tkinter as tk
 import random
 
-player_1 = "X"
-player_2 = "O"  # Auch Computer
+player_X = "X"
+player_O = "O"  # Auch Computer
 playing_vs_computer = False
 computers_turn = False
+
 
 # Initiale Werte für das Spielfeld
 def reset_game_state():
@@ -90,14 +92,15 @@ def restart_game():
 
 
 def button_input_changer(button, field_var_name):
-    global current_turn, label
+    global current_turn, label, used_buttons
 
-    if computers_turn == True:
-        print()
+    used_buttons = []
 
     if isinstance(globals()[field_var_name], int):
         globals()[field_var_name] = current_turn  
         button.config(text=current_turn)
+        used_buttons.append(field_var_name)
+        
         
         if has_won(current_turn):
             label.config(text=f"Spiel beendet! {current_turn} hat gewonnen!")
@@ -113,232 +116,208 @@ def button_input_changer(button, field_var_name):
         
             if playing_vs_computer == True and current_turn == "O":
                 computer_input_changer()
-                current_turn = "X"
+                
+    
                 
 
 def computer_input_changer():
     global current_turn, a, b, c, d, e, f, g, h, i
 
-    almost_loosing_constelation = f"{player_1}{player_1}"
-    almost_winning_constelation = f"{player_2}{player_2}"
+    almost_loosing_constelation = f"{player_X}{player_X}"
+    almost_winning_constelation = f"{player_O}{player_O}"
 
-    available_fields = [field for field in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'] if isinstance(globals()[field], int)]   
+    available_fields = [field for field in ["a", "b", "c", "d", "e", "f", "g", "h", "i"] if isinstance(globals()[field], int)]   
     
     #the code below is used for winning horizontally
-    if f"{a}{b}" == almost_winning_constelation and "c" in available_fields:
+    if f"{a}{b}" == almost_winning_constelation and "c"in available_fields:
         button_input_changer(buttons[2], 'c')
-        return
+        
     elif f"{b}{c}" == almost_winning_constelation and "a" in available_fields:
         button_input_changer(buttons[0], 'a')
-        return
+        
     elif f"{a}{c}" == almost_winning_constelation and "b" in available_fields:
         button_input_changer(buttons[1], 'b')
-        return
+        
     elif f"{d}{e}" == almost_winning_constelation and "f" in available_fields:
         button_input_changer(buttons[5], 'f')
-        return
+        
     elif f"{e}{f}" == almost_winning_constelation and "d" in available_fields:
         button_input_changer(buttons[3], 'd')
-        return
+        
     elif f"{d}{f}" == almost_winning_constelation and "e" in available_fields:
         button_input_changer(buttons[4], 'e')
-        return
+        
     elif f"{g}{h}" == almost_winning_constelation and "i" in available_fields:
         button_input_changer(buttons[8], 'i')
-        return
+        
     elif f"{h}{i}" == almost_winning_constelation and "g" in available_fields:
         button_input_changer(buttons[6], 'g')
-        return
+
     elif f"{g}{i}" == almost_winning_constelation and "h" in available_fields:
         button_input_changer(buttons[7], 'h')
-        return
+        
     elif f"{a}{d}" == almost_winning_constelation and "g" in available_fields:
-        button_input_changer(buttons[6], 'g')
-        return
+        button_input_changer(buttons[6], 'g') 
     
     #the code below is used for winning Verticaly
     elif f"{d}{g}" == almost_winning_constelation and "a" in available_fields:
         button_input_changer(buttons[0], 'a')
-        return
+        
     elif f"{a}{g}" == almost_winning_constelation and "d" in available_fields:
         button_input_changer(buttons[3], 'd')
-        return
+        
     elif f"{b}{e}" == almost_winning_constelation and "h" in available_fields:
         button_input_changer(buttons[7], 'h')
-        return
+        
     elif f"{e}{h}" == almost_winning_constelation and "b" in available_fields:
         button_input_changer(buttons[1], 'b')
-        return
+        
     elif f"{b}{h}" == almost_winning_constelation and "e" in available_fields:
         button_input_changer(buttons[4], 'e')
-        return
+        
     elif f"{c}{f}" == almost_winning_constelation and "i" in available_fields:
         button_input_changer(buttons[8], 'i')
-        return
+        
     elif f"{f}{i}" == almost_winning_constelation and "c" in available_fields:
         button_input_changer(buttons[2], 'c')
-        return
+        
     elif f"{c}{i}" == almost_winning_constelation and "f" in available_fields:
         button_input_changer(buttons[5], 'f')
 
-    #the code below is used for diagonal winning
-        return
+    #the code below is used for diagonal winning  
     elif f"{a}{e}" == almost_winning_constelation and "i" in available_fields:
         button_input_changer(buttons[8], 'i')
-        return
+        
     elif f"{e}{i}" == almost_winning_constelation and "a" in available_fields:
         button_input_changer(buttons[0], 'a')
-        return
+        
     elif f"{a}{i}" == almost_winning_constelation and "e" in available_fields:
         button_input_changer(buttons[4], 'e')
-        return
+        
     elif f"{c}{e}" == almost_winning_constelation and "g" in available_fields:
         button_input_changer(buttons[6], 'g')
-        return
+        
     elif f"{e}{g}" == almost_winning_constelation and "c" in available_fields:
         button_input_changer(buttons[2], 'c')
-        return
+        
     elif f"{g}{c}" == almost_winning_constelation and "e" in available_fields:
         button_input_changer(buttons[4], 'e')
-        return
 
    # The Code Below is used for Blocking the Opponent Horizontal
     elif f"{a}{b}" == almost_loosing_constelation and "c" in available_fields:
         button_input_changer(buttons[2], 'c')
-        return
+        
     elif f"{b}{c}" == almost_loosing_constelation and "a" in available_fields:
         button_input_changer(buttons[0], 'a')
-        return
+        
     elif f"{a}{c}" == almost_loosing_constelation and "b" in available_fields:
         button_input_changer(buttons[1], 'b')
-        return
+        
     elif f"{d}{e}" == almost_loosing_constelation and "f" in available_fields:
         button_input_changer(buttons[5], 'f')
-        return
+        
     elif f"{e}{f}" == almost_loosing_constelation and "d" in available_fields:
         button_input_changer(buttons[3], 'd')
-        return
+        
     elif f"{d}{f}" == almost_loosing_constelation and "e" in available_fields:
         button_input_changer(buttons[4], 'e')
-        return
+        
     elif f"{g}{h}" == almost_loosing_constelation and "i" in available_fields:
         button_input_changer(buttons[8], 'i')
-        return
+        
     elif f"{h}{i}" == almost_loosing_constelation and "g" in available_fields:
         button_input_changer(buttons[6], 'g')
-        return
+        
     elif f"{g}{i}" == almost_loosing_constelation and "h" in available_fields:
         button_input_changer(buttons[7], 'h')
-        return
+        
     # The Code below is used for Blocking Vertical
     elif f"{a}{d}" == almost_loosing_constelation and "g" in available_fields:
         button_input_changer(buttons[6], 'g')
-        return
+        
     elif f"{d}{g}" == almost_loosing_constelation and "a" in available_fields:
         button_input_changer(buttons[0], 'a')
-        return
+        
     elif f"{a}{g}" == almost_loosing_constelation and "d" in available_fields:
         button_input_changer(buttons[3], 'd')
-        return
+        
     elif f"{b}{e}" == almost_loosing_constelation and "h" in available_fields:
         button_input_changer(buttons[7], 'h')
-        return
+        
     elif f"{e}{h}" == almost_loosing_constelation and "b" in available_fields:
         button_input_changer(buttons[1], 'b')
-        return
+        
     elif f"{b}{h}" == almost_loosing_constelation and "e" in available_fields:
         button_input_changer(buttons[4], 'e')
-        return
+        
     elif f"{c}{f}" == almost_loosing_constelation and "i" in available_fields:
         button_input_changer(buttons[8], 'i')
-        return
+        
     elif f"{f}{i}" == almost_loosing_constelation and "c" in available_fields:
         button_input_changer(buttons[2], "c")
-        return
+        
     elif f"{c}{i}" == almost_loosing_constelation and "f" in available_fields:
         button_input_changer(buttons[5], "f")
-        return
-
-
-
+        
     #The Code Below is used to Block the Opponent Diagonally
     elif f"{a}{e}" == almost_loosing_constelation and "i" in available_fields:
             button_input_changer(buttons[8], 'i')
-            return
             
     elif f"{e}{i}" == almost_loosing_constelation and "a" in available_fields:
             button_input_changer(buttons[0], 'a')
-            return
             
     elif f"{a}{i}" == almost_loosing_constelation and "e" in available_fields:
             button_input_changer(buttons[4], 'e')
-            return
             
     elif f"{c}{e}" == almost_loosing_constelation and "g" in available_fields:
             button_input_changer(buttons[6], 'g')
-            return
             
     elif f"{e}{g}" == almost_loosing_constelation and "c" in available_fields:
             button_input_changer(buttons[2], 'c')
-            return
-    
+            
     elif f"{g}{c}" == almost_loosing_constelation and "e" in available_fields:
             button_input_changer(buttons[4], 'e')
-            return
-
 
 
     elif available_fields:
-        choice = random.choice(available_fields)
-        index = ord(choice) - ord('a')  # Berechnet den Index basierend auf dem gewählten Buchstaben
-        button_input_changer(buttons[index], choice)
+
+        avaiable_buttons = [] 
+
+
+        
+        choice = random.choice(buttons)
+        index = buttons.index(choice)
+        Field_VAR_NAME = chr(97 + index)
+        button_input_changer(buttons[index], Field_VAR_NAME)
 
 def game_window():
-    global label, buttons, window
+    global label, buttons, window, field_list
 
     window = tk.Tk()
-    window.title("Tic-Tac-Toe")
+    window.title("TicTacToe")
 
     label = tk.Label(window, text=f"Wähle ein Feld aus ({current_turn}):", font=("Arial", 16))
     label.grid(row=0, column=0, columnspan=3, pady=10)
 
     buttons = []
 
-    button_a = tk.Button(window, text=f"{a}", width=10, height=5, command=lambda: button_input_changer(button_a, 'a'), bg="white", fg="black")
-    button_a.grid(row=1, column=0, padx=5, pady=5)
-    buttons.append(button_a)
+    row = 4
+    column = 0
+    Name = 97
+    #Loop erstellen der die buttons erstellt..
+    #Für jede Variable a, b, c, d, e, f, g, h, i,
+    field_list = [a, b, c, d, e, f, g, h, i]
 
-    button_b = tk.Button(window, text=f"{b}", width=10, height=5, command=lambda: button_input_changer(button_b, 'b'), bg="white", fg="black")
-    button_b.grid(row=1, column=1, padx=5, pady=5)
-    buttons.append(button_b)
-
-    button_c = tk.Button(window, text=f"{c}", width=10, height=5, command=lambda: button_input_changer(button_c, 'c'), bg="white", fg="black")
-    button_c.grid(row=1, column=2, padx=5, pady=5)
-    buttons.append(button_c)
-    
-    button_d = tk.Button(window, text=f"{d}", width=10, height=5, command=lambda: button_input_changer(button_d, 'd'), bg="white", fg="black")
-    button_d.grid(row=2, column=0, padx=5, pady=5)
-    buttons.append(button_d)
-
-    button_e = tk.Button(window, text=f"{e}", width=10, height=5, command=lambda: button_input_changer(button_e, 'e'), bg="white", fg="black")
-    button_e.grid(row=2, column=1, padx=5, pady=5)
-    buttons.append(button_e)
-
-    button_f = tk.Button(window, text=f"{f}", width=10, height=5, command=lambda: button_input_changer(button_f, 'f'), bg="white", fg="black")
-    button_f.grid(row=2, column=2, padx=5, pady=5)
-    buttons.append(button_f)
-
-    button_g = tk.Button(window, text=f"{g}", width=10, height=5, command=lambda: button_input_changer(button_g, 'g'), bg="white", fg="black")
-    button_g.grid(row=3, column=0, padx=5, pady=5)
-    buttons.append(button_g)
-
-    button_h = tk.Button(window, text=f"{h}", width=10, height=5, command=lambda: button_input_changer(button_h, 'h'), bg="white", fg="black")
-    button_h.grid(row=3, column=1, padx=5, pady=5)
-    buttons.append(button_h)
-
-    button_i = tk.Button(window, text=f"{i}", width=10, height=5, command=lambda: button_input_changer(button_i, 'i'), bg="white", fg="black")
-    button_i.grid(row=3, column=2, padx=5, pady=5)
-    buttons.append(button_i)
+    for field in field_list:
+        button = tk.Button(window, text=f"{field}", width=10, height=5, bg="white", fg="black")
+        button.config(command=lambda fld=chr(Name), btn=button:  button_input_changer(btn, fld))
+        button.grid(row=row , column=column , padx=5, pady=5)
+        buttons.append(button)
+        column +=1
+        Name += 1
+        if column % 3 == 0:
+            row += 1
+            column = 0
 
     window.mainloop()
 
