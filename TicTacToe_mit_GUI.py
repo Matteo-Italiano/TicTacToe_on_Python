@@ -283,8 +283,6 @@ def computer_input_changer():
 
         avaiable_buttons = [] 
 
-
-        
         choice = random.choice(buttons)
         index = buttons.index(choice)
         Field_VAR_NAME = chr(97 + index)
