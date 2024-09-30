@@ -1,4 +1,3 @@
-import copy
 import tkinter as tk
 import random
 
@@ -8,13 +7,15 @@ playing_vs_computer = False
 computers_turn = False
 
 
+
 # Initiale Werte für das Spielfeld
 def reset_game_state():
-    global a, b, c, d, e, f, g, h, i, current_turn
+    global a, b, c, d, e, f, g, h, i, current_turn, used_buttons
     a, b, c = 1, 2, 3
     d, e, f = 4, 5, 6
     g, h, i = 7, 8, 9
-    current_turn = "X"  # Spiel beginnt immer mit X
+    current_turn = "X"
+    used_buttons = []
 reset_game_state()
 
 def mode_selection():
@@ -92,14 +93,12 @@ def restart_game():
 
 
 def button_input_changer(button, field_var_name):
-    global current_turn, label, used_buttons
-
-    used_buttons = []
+    global current_turn, label
 
     if isinstance(globals()[field_var_name], int):
         globals()[field_var_name] = current_turn  
         button.config(text=current_turn)
-        used_buttons.append(field_var_name)
+        used_buttons.append(button)
         
         
         if has_won(current_turn):
@@ -117,11 +116,9 @@ def button_input_changer(button, field_var_name):
             if playing_vs_computer == True and current_turn == "O":
                 computer_input_changer()
                 
-    
-                
 
 def computer_input_changer():
-    global current_turn, a, b, c, d, e, f, g, h, i
+    global current_turn, a, b, c, d, e, f, g, h, i, randomizer
 
     almost_loosing_constelation = f"{player_X}{player_X}"
     almost_winning_constelation = f"{player_O}{player_O}"
@@ -281,14 +278,17 @@ def computer_input_changer():
 
     elif available_fields:
 
-        avaiable_buttons = [] 
-
-
-        
-        choice = random.choice(buttons)
-        index = buttons.index(choice)
-        Field_VAR_NAME = chr(97 + index)
-        button_input_changer(buttons[index], Field_VAR_NAME)
+        def randomizer():
+            global choice, index
+            while True:
+                choice = random.choice(buttons) 
+                index = buttons.index(choice)
+                if choice in used_buttons:
+                    continue
+                Field_VAR_NAME = chr(97 + index)
+                button_input_changer(buttons[index], Field_VAR_NAME)
+                return
+        randomizer()
 
 def game_window():
     global label, buttons, window, field_list
