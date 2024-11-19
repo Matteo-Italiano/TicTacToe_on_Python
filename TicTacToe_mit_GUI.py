@@ -6,8 +6,6 @@ player_O = "O"  # Auch Computer
 playing_vs_computer = False
 computers_turn = False
 
-
-
 # Initiale Werte für das Spielfeld
 def reset_game_state():
     global a, b, c, d, e, f, g, h, i, current_turn, used_buttons
@@ -38,7 +36,6 @@ def mode_selection():
     selection_window.mainloop()
 
 def has_won(player):
-
     player_validation_string = f"{player}{player}{player}"
 
     if f"{a}{b}{c}" == player_validation_string:
@@ -91,7 +88,6 @@ def restart_game():
     for idx, button in enumerate(buttons):
         button.config(text=globals()[chr(97 + idx)], state="normal")
 
-
 def button_input_changer(button, field_var_name):
     global current_turn, label
 
@@ -99,8 +95,7 @@ def button_input_changer(button, field_var_name):
         globals()[field_var_name] = current_turn  
         button.config(text=current_turn)
         used_buttons.append(button)
-        
-        
+
         if has_won(current_turn):
             label.config(text=f"Spiel beendet! {current_turn} hat gewonnen!")
             disable_all_buttons()
@@ -114,8 +109,10 @@ def button_input_changer(button, field_var_name):
             label.config(text=f"Wähle ein Feld aus ({current_turn}):")
         
             if playing_vs_computer == True and current_turn == "O":
+
                 computer_input_changer()
                 
+
 
 def computer_input_changer():
     global current_turn, a, b, c, d, e, f, g, h, i, randomizer
@@ -274,7 +271,6 @@ def computer_input_changer():
             
     elif f"{g}{c}" == almost_loosing_constelation and "e" in available_fields:
             button_input_changer(buttons[4], 'e')
-
 
     elif available_fields:
 
