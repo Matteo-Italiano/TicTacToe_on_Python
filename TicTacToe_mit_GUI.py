@@ -95,7 +95,7 @@ def button_input_changer(button, field_var_name):
         globals()[field_var_name] = current_turn  
         button.config(text=current_turn)
         used_buttons.append(button)
-             
+
         if has_won(current_turn):
             label.config(text=f"Spiel beendet! {current_turn} hat gewonnen!")
             disable_all_buttons()
@@ -109,7 +109,10 @@ def button_input_changer(button, field_var_name):
             label.config(text=f"Wähle ein Feld aus ({current_turn}):")
         
             if playing_vs_computer == True and current_turn == "O":
-                computer_input_changer()           
+
+                computer_input_changer()
+                
+
 
 def computer_input_changer():
     global current_turn, a, b, c, d, e, f, g, h, i, randomizer
